@@ -162,7 +162,6 @@ private void ViewDatilPenyewaByName(){
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         lblTotalView = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -348,15 +347,6 @@ private void ViewDatilPenyewaByName(){
         lblTotalView.setText("lblTotalView");
         getContentPane().add(lblTotalView, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 360, 120, 30));
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton2.setText("Cek Booking");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 340, -1, 50));
-
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tesaapp/img/icons8-bullet-list-48.png"))); // NOI18N
         jButton3.setText("Lihat Daftar Sewa");
@@ -445,10 +435,6 @@ private void ViewDatilPenyewaByName(){
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        CekBookingRuang();
-    }//GEN-LAST:event_jButton2ActionPerformed
-
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         this.dispose();
         List_Sewa frame = new List_Sewa(); //[940, 670]
@@ -517,7 +503,6 @@ private void ViewDatilPenyewaByName(){
     private javax.swing.JComboBox cbPenyewa;
     private javax.swing.JComboBox cbRuang;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private com.toedter.calendar.JDateChooser jDateAkhir;
     private com.toedter.calendar.JDateChooser jDateAwal;
