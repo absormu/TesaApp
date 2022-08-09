@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Lap_Penyewa" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f1c30de9-5727-4f45-87e7-5a3e96fcd216">
+	<property name="ireport.zoom" value="1.6105100000000114"/>
+	<property name="ireport.x" value="145"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     tb_penyewa.`id` AS tb_penyewa_id,
+     tb_penyewa.`ktp` AS tb_penyewa_ktp,
+     tb_penyewa.`nama` AS tb_penyewa_nama,
+     tb_penyewa.`email` AS tb_penyewa_email,
+     tb_penyewa.`no_tlp` AS tb_penyewa_no_tlp,
+     tb_penyewa.`alamat` AS tb_penyewa_alamat
+FROM
+     `tb_penyewa` tb_penyewa]]>
+	</queryString>
+	<field name="tb_penyewa_id" class="java.lang.Integer"/>
+	<field name="tb_penyewa_ktp" class="java.lang.String"/>
+	<field name="tb_penyewa_nama" class="java.lang.String"/>
+	<field name="tb_penyewa_email" class="java.lang.String"/>
+	<field name="tb_penyewa_no_tlp" class="java.lang.String"/>
+	<field name="tb_penyewa_alamat" class="java.lang.String"/>
+	<variable name="ROW_COUNTER" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[new java.lang.Integer($V{ROW_COUNTER}.intValue()+1)]]></variableExpression>
+		<initialValueExpression><![CDATA[new Integer(0)]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="56" splitType="Stretch">
+			<staticText>
+				<reportElement x="210" y="0" width="346" height="27" uuid="16f7c231-c396-4b82-bb4c-bf69fa4a8d96"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Laporan Data Penyewa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="210" y="27" width="345" height="27" uuid="7477e9f6-f64b-4e6a-bab2-ff6473495c38"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[PT. Usaha Gedung Mandiri Jakarta]]></text>
+			</staticText>
+			<image>
+				<reportElement x="0" y="0" width="159" height="54" uuid="3ed07b08-d4e2-4c79-9362-b50a1b1fc6aa"/>
+				<imageExpression><![CDATA["C:\\tesaapp\\img\\Logo-1.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<staticText>
+				<reportElement x="2" y="3" width="31" height="20" uuid="87ddb3ef-273d-438c-a8e2-cf26457b52d7"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[No.]]></text>
+			</staticText>
+			<line>
+				<reportElement x="2" y="1" width="553" height="1" uuid="0d2dd567-0312-42d5-a0de-9973125d5e62"/>
+			</line>
+			<staticText>
+				<reportElement x="33" y="3" width="126" height="20" uuid="75c6946e-321e-4355-a26a-26a4c7877c64"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Nama Penyewa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="159" y="3" width="149" height="20" uuid="495cee28-0847-46bb-830c-ed8ca32ed80f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Email]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="308" y="3" width="91" height="20" uuid="c305f1cf-5c30-4e0b-9727-544ea0ebb7c0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[No. Telepon]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="399" y="3" width="156" height="20" uuid="f762e480-ef49-4267-8dc4-5b691a44e075"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Alamat]]></text>
+			</staticText>
+			<line>
+				<reportElement x="2" y="23" width="553" height="1" uuid="63cdde55-9d2a-416b-8137-ca863b7eab50"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="32" splitType="Stretch">
+			<textField>
+				<reportElement x="2" y="0" width="29" height="20" uuid="a00b5f16-e0c1-4a74-83c3-c8cf9fb46c84"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{ROW_COUNTER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="31" y="0" width="128" height="20" uuid="9633c0fa-b0b4-463b-883c-aca99ab86d02"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tb_penyewa_nama}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="159" y="0" width="149" height="20" uuid="13fb797c-e76b-4c75-ac5c-a76661cd1811"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tb_penyewa_email}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="308" y="0" width="91" height="20" uuid="0002ca7e-4463-485f-bc0f-924cd4887232"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tb_penyewa_no_tlp}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="399" y="0" width="156" height="32" uuid="16131c74-d283-4867-a900-e1ee610fab23"/>
+				<textElement textAlignment="Justified">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tb_penyewa_alamat}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="104" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="1" width="555" height="1" uuid="2ea19492-cf3e-4055-94d6-975569822ca4"/>
+			</line>
+			<staticText>
+				<reportElement x="418" y="2" width="44" height="20" uuid="a66fe638-36f0-49e1-b851-a8421e04060e"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Jakarta,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="418" y="22" width="137" height="20" uuid="25c6305e-6f8b-45cb-9a66-36ad5b56c061"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Dibuat Oleh:]]></text>
+			</staticText>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement x="462" y="2" width="93" height="20" uuid="42ebf4fc-3691-4b79-bb5b-ef8cf15be635"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="418" y="64" width="137" height="20" uuid="9896910c-3ef0-44a8-8984-813ae7112b2e"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="12" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Tesalonika Kalangi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="418" y="84" width="137" height="20" uuid="54c662f6-06ca-4af0-8d62-2351ef7185d0"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Administrasi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="210" y="22" width="137" height="20" uuid="7c584efc-5c53-4e13-936c-9df166c8ace1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Diperiksa Oleh:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="210" y="64" width="137" height="20" uuid="59ce9ee2-c961-4e42-8f08-f464ae3143a5"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="12" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Hana Hanifa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="210" y="84" width="137" height="20" uuid="952706c1-28b4-4264-ac8b-d5440bc81844"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Supervisior]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="22" width="137" height="20" uuid="ce524b36-d674-482c-a9fd-722f306a638d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Disetujui Oleh:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="64" width="137" height="20" uuid="5f4f0ffe-4e40-472d-a63f-c21fd0c2ba12"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="12" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[M Ulil Absor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="84" width="137" height="20" uuid="f9e6cd50-e21f-4a87-9f25-3d40e19464a8"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Manager]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>
