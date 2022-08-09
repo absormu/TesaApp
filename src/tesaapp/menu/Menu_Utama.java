@@ -44,8 +44,8 @@ public class Menu_Utama extends javax.swing.JFrame {
 private void Cetak_Data_Pegawai() throws SQLException{
     try { 
         con=kon.open();
-        File file = new File("src/tesaapp/report/Lap_Pegawai.jrxml"); 
-//        File file = new File("C://tesaapp/report/Lap_Pegawai.jrxml"); 
+//        File file = new File("src/tesaapp/report/Lap_Pegawai.jrxml"); 
+        File file = new File("C://tesaapp/report/Lap_Pegawai.jrxml"); 
         jasperDesign = JRXmlLoader.load(file);  
         jasperReport = JasperCompileManager.compileReport(jasperDesign);
         jasperPrint = JasperFillManager.fillReport(jasperReport,parham,con);
@@ -60,8 +60,8 @@ private void Cetak_Data_Pegawai() throws SQLException{
 private void Cetak_Data_Ruang() throws SQLException{
     try { 
         con=kon.open();
-        File file = new File("src/tesaapp/report/Lap_Ruang.jrxml"); 
-//        File file = new File("C://tesaapp/report/Lap_Ruang.jrxml"); 
+//        File file = new File("src/tesaapp/report/Lap_Ruang.jrxml"); 
+        File file = new File("C://tesaapp/report/Lap_Ruang.jrxml"); 
         jasperDesign = JRXmlLoader.load(file);  
         jasperReport = JasperCompileManager.compileReport(jasperDesign);
         jasperPrint = JasperFillManager.fillReport(jasperReport,parham,con);
@@ -76,8 +76,8 @@ private void Cetak_Data_Ruang() throws SQLException{
 private void Cetak_Data_Penyewa() throws SQLException{
     try { 
         con=kon.open();
-        File file = new File("src/tesaapp/report/Lap_Penyewa.jrxml"); 
-//        File file = new File("C://tesaapp/report/Lap_Penyewa.jrxml"); 
+//        File file = new File("src/tesaapp/report/Lap_Penyewa.jrxml"); 
+        File file = new File("C://tesaapp/report/Lap_Penyewa.jrxml"); 
         jasperDesign = JRXmlLoader.load(file);  
         jasperReport = JasperCompileManager.compileReport(jasperDesign);
         jasperPrint = JasperFillManager.fillReport(jasperReport,parham,con);

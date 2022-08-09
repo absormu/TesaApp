@@ -72,8 +72,8 @@ public class List_Sewa extends javax.swing.JFrame {
 private void Cetak_Data() throws SQLException{
     try { 
         con=kon.open();
-        File file = new File("src/tesaapp/report/Lap_Sewa_List.jrxml"); 
-//        File file = new File("C://tesaapp/report/Lap_Sewa_List.jrxml"); 
+//        File file = new File("src/tesaapp/report/Lap_Sewa_List.jrxml"); 
+        File file = new File("C://tesaapp/report/Lap_Sewa_List.jrxml"); 
         jasperDesign = JRXmlLoader.load(file);  
         parham.put("TGL1",tgl1); 
         parham.put("TGL2",tgl2);   

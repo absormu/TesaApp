@@ -53,8 +53,8 @@ public class Cetak_Perjanjian extends javax.swing.JFrame {
     private void Cetak_Data() throws SQLException{
     try { 
         con=kon.open();
-        File file = new File("src/tesaapp/report/Lap_Perjanjian.jrxml"); 
-//        File file = new File("C://tesaapp/report/Lap_Perjanjian.jrxml"); 
+//        File file = new File("src/tesaapp/report/Lap_Perjanjian.jrxml"); 
+        File file = new File("C://tesaapp/report/Lap_Perjanjian.jrxml"); 
         jasperDesign = JRXmlLoader.load(file);  
         parham.put("NO_SEWA",txtNoSewa.getText());
         jasperReport = JasperCompileManager.compileReport(jasperDesign);
@@ -101,7 +101,6 @@ public class Cetak_Perjanjian extends javax.swing.JFrame {
 
         txtNoSewa.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         txtNoSewa.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtNoSewa.setText("20220805003");
         txtNoSewa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNoSewaActionPerformed(evt);

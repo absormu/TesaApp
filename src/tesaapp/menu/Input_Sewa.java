@@ -427,12 +427,9 @@ private void ViewDatilPenyewaByName(){
     }//GEN-LAST:event_txtEmailKeyPressed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       
-        // buat function hitung periode tanggal
+
         Dapatkan_Durasi();
         HitungBiayaSewa();
-        // buat validasi apakah tgl1 sebelum tgl2
-        // buat validasi apakah ruangan sudah dibooking
             int confirm = JOptionPane.showConfirmDialog(this,
             "Anda yakin benar & ingin simpan ???",
             "MOHON CEK KEMBALI",

@@ -107,8 +107,8 @@ private void UpdatePembayaran(){
 private void Cetak_Data_Perjanjian() throws SQLException{
     try { 
         con=kon.open();
-        File file = new File("src/tesaapp/report/Lap_Perjanjian.jrxml"); 
-//        File file = new File("C://tesaapp/report/Lap_Perjanjian.jrxml"); 
+//        File file = new File("src/tesaapp/report/Lap_Perjanjian.jrxml"); 
+        File file = new File("C://tesaapp/report/Lap_Perjanjian.jrxml"); 
         jasperDesign = JRXmlLoader.load(file);  
         parham.put("NO_SEWA",lblNosewa.getText());   
         jasperReport = JasperCompileManager.compileReport(jasperDesign);
@@ -124,8 +124,8 @@ private void Cetak_Data_Perjanjian() throws SQLException{
 private void Cetak_Data_Kuitansi() throws SQLException{
     try { 
         con=kon.open();
-        File file = new File("src/tesaapp/report/Lap_Kuitansi.jrxml"); 
-//        File file = new File("C://tesaapp/report/Lap_Kuitansi.jrxml"); 
+//        File file = new File("src/tesaapp/report/Lap_Kuitansi.jrxml"); 
+        File file = new File("C://tesaapp/report/Lap_Kuitansi.jrxml"); 
         jasperDesign = JRXmlLoader.load(file);  
         parham.put("NO_SEWA",lblNosewa.getText());   
         jasperReport = JasperCompileManager.compileReport(jasperDesign);
