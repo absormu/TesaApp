@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Lap_Kuitansi" language="groovy" pageWidth="595" pageHeight="442" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d65a857b-9b2e-4d46-be9a-4d961996189c">
+	<property name="ireport.zoom" value="1.7715610000000253"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="215"/>
+	<parameter name="NO_SEWA" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     tb_sewa.`no_sewa` AS tb_sewa_no_sewa,
+     tb_sewa.`tgl_sewa` AS tb_sewa_tgl_sewa,
+     tb_sewa.`periode_awal` AS tb_sewa_periode_awal,
+     tb_sewa.`periode_akhir` AS tb_sewa_periode_akhir,
+     tb_sewa.`periode_total` AS tb_sewa_periode_total,
+     tb_sewa.`harga` AS tb_sewa_harga,
+     tb_sewa.`total` AS tb_sewa_total,
+     tb_sewa.`ruang_id` AS tb_sewa_ruang_id,
+     tb_sewa.`penyewa_id` AS tb_sewa_penyewa_id,
+     tb_sewa.`created_at` AS tb_sewa_created_at,
+     tb_sewa.`created_by` AS tb_sewa_created_by,
+     tb_ruang.`id` AS tb_ruang_id,
+     tb_ruang.`nama` AS tb_ruang_nama,
+     tb_ruang.`harga` AS tb_ruang_harga,
+     tb_ruang.`luas` AS tb_ruang_luas,
+     tb_ruang.`deskripsi` AS tb_ruang_deskripsi,
+     tb_penyewa.`id` AS tb_penyewa_id,
+     tb_penyewa.`ktp` AS tb_penyewa_ktp,
+     tb_penyewa.`nama` AS tb_penyewa_nama,
+     tb_penyewa.`email` AS tb_penyewa_email,
+     tb_penyewa.`no_tlp` AS tb_penyewa_no_tlp,
+     tb_penyewa.`alamat` AS tb_penyewa_alamat,
+     tb_sewa.`status_id` AS tb_sewa_status_id,
+     tb_sewa.`pegawai_id` AS tb_sewa_pegawai_id,
+     tb_sewa.`tgl_pembayaran` AS tb_sewa_tgl_pembayaran,
+     tb_sewa.`say_total` AS tb_sewa_say_total
+FROM
+     `tb_ruang` tb_ruang INNER JOIN `tb_sewa` tb_sewa ON tb_ruang.`id` = tb_sewa.`ruang_id`
+     INNER JOIN `tb_penyewa` tb_penyewa ON tb_sewa.`penyewa_id` = tb_penyewa.`id`
+WHERE
+     tb_sewa.`no_sewa` = $P{NO_SEWA}
+ AND tb_sewa.`status_id` = '1']]>
+	</queryString>
+	<field name="tb_sewa_no_sewa" class="java.lang.String"/>
+	<field name="tb_sewa_tgl_sewa" class="java.lang.String"/>
+	<field name="tb_sewa_periode_awal" class="java.lang.String"/>
+	<field name="tb_sewa_periode_akhir" class="java.lang.String"/>
+	<field name="tb_sewa_periode_total" class="java.lang.Integer"/>
+	<field name="tb_sewa_harga" class="java.lang.Integer"/>
+	<field name="tb_sewa_total" class="java.lang.Integer"/>
+	<field name="tb_sewa_ruang_id" class="java.lang.Integer"/>
+	<field name="tb_sewa_penyewa_id" class="java.lang.Integer"/>
+	<field name="tb_sewa_created_at" class="java.sql.Timestamp"/>
+	<field name="tb_sewa_created_by" class="java.lang.String"/>
+	<field name="tb_ruang_id" class="java.lang.Integer"/>
+	<field name="tb_ruang_nama" class="java.lang.String"/>
+	<field name="tb_ruang_harga" class="java.lang.Integer"/>
+	<field name="tb_ruang_luas" class="java.lang.Integer"/>
+	<field name="tb_ruang_deskripsi" class="java.lang.String"/>
+	<field name="tb_penyewa_id" class="java.lang.Integer"/>
+	<field name="tb_penyewa_ktp" class="java.lang.String"/>
+	<field name="tb_penyewa_nama" class="java.lang.String"/>
+	<field name="tb_penyewa_email" class="java.lang.String"/>
+	<field name="tb_penyewa_no_tlp" class="java.lang.String"/>
+	<field name="tb_penyewa_alamat" class="java.lang.String"/>
+	<field name="tb_sewa_status_id" class="java.lang.Integer"/>
+	<field name="tb_sewa_pegawai_id" class="java.lang.Integer"/>
+	<field name="tb_sewa_tgl_pembayaran" class="java.lang.String"/>
+	<field name="tb_sewa_say_total" class="java.lang.String"/>
+	<variable name="ROW_COUNTER" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[new java.lang.Integer($V{ROW_COUNTER}.intValue()+1)]]></variableExpression>
+		<initialValueExpression><![CDATA[new Integer(0)]]></initialValueExpression>
+	</variable>
+	<variable name="TOTAL" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{tb_sewa_total}]]></variableExpression>
+	</variable>
+	<variable name="JML" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{tb_sewa_no_sewa}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="57" splitType="Stretch">
+			<staticText>
+				<reportElement x="156" y="0" width="390" height="27" uuid="497356ef-e11d-42fe-8042-772402279d0d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bukti Pembayaran Sewa Ruang Serba Guna]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="159" y="27" width="387" height="27" uuid="b7d5b863-c7a4-439d-8e6f-d29ce42f4864"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[PT. Usaha Gedung Mandiri Jakarta]]></text>
+			</staticText>
+			<image>
+				<reportElement x="0" y="0" width="159" height="54" uuid="da7a9ecb-0aec-461e-921b-ac985d1f3114"/>
+				<imageExpression><![CDATA["C:\\tesaapp\\img\\Logo-1.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="146" splitType="Stretch">
+			<staticText>
+				<reportElement x="1" y="2" width="72" height="20" uuid="74513b7b-7fe2-4021-9509-ab138ce98ea4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[No. Sewa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="395" y="2" width="72" height="20" uuid="a16d8d87-b798-4158-8b64-9c90aedafe08"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Tanggal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="159" y="107" width="94" height="20" uuid="9ffff8c6-a9c5-4cc2-99f8-e9ff5d07edd8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Sampai dengan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="124" width="38" height="20" uuid="2b14775b-4f05-4df3-845e-f96319508305"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Harga]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="90" width="183" height="20" uuid="d0fcd5ee-53ee-4939-afcb-2a5fc4889a3f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Untuk Pembayaran Sewa Ruang :]]></text>
+			</staticText>
+			<line>
+				<reportElement x="-1" y="0" width="547" height="1" uuid="31d2d997-2c09-44ba-94f9-938f2a42e7c9"/>
+			</line>
+			<textField>
+				<reportElement x="467" y="2" width="79" height="20" uuid="ea0b49f6-a9bd-446f-94a2-d06c1e95a26a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tb_sewa_tgl_sewa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="73" y="2" width="79" height="20" uuid="0704b482-79e1-4478-807b-4468e35938b9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tb_sewa_no_sewa}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="85" y="107" width="74" height="20" uuid="826eb11f-b21f-446b-85a0-f841fbefd12e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tb_sewa_periode_awal}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="253" y="107" width="82" height="20" uuid="22e09e4a-57cd-4e14-8cd3-0c8000785bc3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tb_sewa_periode_akhir}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="185" y="90" width="155" height="20" uuid="cb8790e8-4f13-419a-9b1b-c01e8d9628e7"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tb_ruang_nama}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="117" y="39" width="112" height="20" uuid="e59360b9-fffb-47ae-9944-e0d8a0423078"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tb_penyewa_nama}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="38" y="107" width="24" height="20" uuid="98fc5647-740e-41fb-83be-9c4072a36848"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tb_sewa_periode_total}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="63" y="107" width="24" height="20" uuid="affcc590-b247-47dc-927d-cc13e6d428fb"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Hari]]></text>
+			</staticText>
+			<textField pattern="#,##0">
+				<reportElement x="38" y="124" width="64" height="20" uuid="7551e671-3b8a-4a7c-b976-101a912c0d8a"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tb_sewa_harga}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="117" y="54" width="112" height="20" uuid="412ffd32-27a1-40db-87dd-417554820c4d"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tb_sewa_total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="117" y="70" width="320" height="20" uuid="1518dbf8-232c-4dca-88f7-9c0f90063f9c"/>
+				<textElement verticalAlignment="Top">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tb_sewa_say_total}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="39" width="111" height="20" uuid="d9666a82-b488-4a32-80fd-27101c996f1b"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Telah diterima dari :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="54" width="111" height="20" uuid="aeee68ca-139f-418d-8fd7-41355e7c6048"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Sejumlah Uang :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="107" width="42" height="20" uuid="f1d1e226-dcf6-4911-8fa9-da4d5df2915f"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Selama]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="103" y="124" width="31" height="20" uuid="874ca0fd-b23c-426f-a999-c2d0a8a8f7a2"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[/Hari]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<summary>
+		<band height="106" splitType="Stretch">
+			<line>
+				<reportElement x="-1" y="0" width="547" height="1" uuid="7fdcdb50-9b03-4970-b40c-eaca0d011872"/>
+			</line>
+			<staticText>
+				<reportElement x="413" y="22" width="137" height="20" uuid="0ff78b25-7784-4aa0-af15-0d8440862012"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Dibuat Oleh:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="413" y="63" width="137" height="20" uuid="05cf2cd6-7bf6-41c1-9a39-91b9f96e2690"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="12" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Tesalonika Kalangi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="413" y="83" width="137" height="20" uuid="22d1fc76-c747-4c59-8fcd-bbfa0a3cd731"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Administrasi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="413" y="3" width="44" height="20" uuid="8d9dfa9a-c2a6-44d2-af85-ce1c5c8f5fdb"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Jakarta,]]></text>
+			</staticText>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement x="457" y="3" width="93" height="20" uuid="49616add-e499-4bb5-86fe-735294aa8bc3"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>
