@@ -96,7 +96,6 @@ private void LogicLogin(){
 
         textPassword.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         textPassword.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        textPassword.setText("admin");
         textPassword.setOpaque(false);
         textPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,7 +145,6 @@ private void LogicLogin(){
 
         textNamaPengguna.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         textNamaPengguna.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        textNamaPengguna.setText("admin");
         textNamaPengguna.setOpaque(false);
         textNamaPengguna.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
