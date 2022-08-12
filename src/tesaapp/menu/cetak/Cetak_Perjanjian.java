@@ -12,6 +12,7 @@ import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -27,10 +28,6 @@ import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JasperViewer;
 import tesaapp.koneksi.Koneksi;
 
-/**
- *
- * @author dell
- */
 public class Cetak_Perjanjian extends javax.swing.JFrame {
 
     JasperReport jasperReport; 
@@ -47,7 +44,9 @@ public class Cetak_Perjanjian extends javax.swing.JFrame {
     private String tgl1;
     private String tgl2;
     public Cetak_Perjanjian() {
-        initComponents();  
+        initComponents(); 
+        Locale locale = new Locale("id", "ID");
+        Locale.setDefault(locale);
     }
 
     private void Cetak_Data() throws SQLException{

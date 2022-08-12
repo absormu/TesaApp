@@ -12,6 +12,7 @@ import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -26,10 +27,6 @@ import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JasperViewer;
 import tesaapp.koneksi.Koneksi;
 
-/**
- *
- * @author dell
- */
 public class Cetak_Pembayaran_Sewa extends javax.swing.JFrame {
 
     JasperReport jasperReport; 
@@ -50,6 +47,8 @@ public class Cetak_Pembayaran_Sewa extends javax.swing.JFrame {
          Date date = new Date();
         jDateAwal.setDate(date); 
         jDateAkhir.setDate(date);  
+        Locale locale = new Locale("id", "ID");
+        Locale.setDefault(locale);
     }
 
     private void Cetak_Data() throws SQLException{

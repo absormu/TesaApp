@@ -38,6 +38,8 @@ public class Input_Sewa extends javax.swing.JDialog {
     public Input_Sewa(java.awt.Frame parent, boolean modal) throws SQLException {
         super(parent, modal);
         initComponents(); 
+        Locale locale = new Locale("id", "ID");
+        Locale.setDefault(locale);
         setLocationRelativeTo(this); 
         Date date = new Date();
         jDateAwal.setDate(date); 

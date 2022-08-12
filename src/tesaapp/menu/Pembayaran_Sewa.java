@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -34,6 +35,8 @@ public class Pembayaran_Sewa extends javax.swing.JFrame {
     public Pembayaran_Sewa() {
         initComponents();
         viewSewaByNo();
+        Locale locale = new Locale("id", "ID");
+        Locale.setDefault(locale);
     }
 private void viewSewaByNo(){
         try{

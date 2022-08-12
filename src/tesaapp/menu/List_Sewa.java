@@ -12,6 +12,7 @@ import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -52,6 +53,8 @@ public class List_Sewa extends javax.swing.JFrame {
         jDateAkhir.setDate(date); 
         BuatTabel();
         LoadTabel();
+        Locale locale = new Locale("id", "ID");
+        Locale.setDefault(locale);
     }
 
      private void BuatTabel(){ 
